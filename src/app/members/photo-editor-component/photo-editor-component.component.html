@@ -1,0 +1,40 @@
+<br><br><br><br>
+<div class="container">
+<div class="row">
+    <div *ngFor="let photo of photos" class="col-sm-2" >
+        <img src= "{{photo.photoUrl}}">
+ 
+        <div class="text-center">
+            <button class="btn btn-xs" type="button" (click)="setMainPhoto()">Main</button>
+            <button class="btn btn-xs btn-danger" type="button">
+                <i class="fa fa-trash-o"> Delete </i>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+<span>-----------------------</span>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3>Choose File</h3>            
+            <div class="form-group">
+                <input type="file" name="image" (change)="fileProgress($event)" />
+            </div>
+            <div *ngIf="fileUploadProgress">
+                Upload progress: {{ fileUploadProgress }}
+            </div>
+            <div class="image-preview mb-3" *ngIf="previewUrl">
+                <img [src]="previewUrl" height="300" />                 
+            </div>
+ 
+            <div class="mb-3" *ngIf="uploadedFilePath">
+                {{uploadedFilePath}}
+            </div>
+             
+            <div class="form-group">
+                <button class="btn btn-primary"  (click)="onSubmit()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

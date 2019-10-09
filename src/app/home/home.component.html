@@ -1,0 +1,29 @@
+<br><br><br><br>
+<div class="text-center">
+<div *ngIf="!registerMode" class="container">
+
+    <h1 class="jumbotron-heading-center">Dating App</h1>
+    <p class="lead text-muted">********Hello There!!!!</p>
+    <p>
+      <!-- <button class="btn btn-primary my-2" (click)='registerToggle()'>Register</button> -->
+      <!-- <a href="#" class="btn btn-primary my-2">Main action</a>
+      <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
+ 
+  </div>
+</div>
+
+<div *ngIf="!registerMode" class="container">
+
+  <p *ngFor="let value of values">
+    {{value.id}} : {{value.name}}
+  </p>
+
+</div>
+
+<!-- <div *ngIf="registerMode" class="d-flex justify-content-center">
+
+  <div class="col-md-4 col-md-offset-4">
+    <app-register [valuesFromHome]= "values" (cancelRegister)= "cancelRegisterMode($event)"></app-register>
+  </div>
+
+</div> -->
