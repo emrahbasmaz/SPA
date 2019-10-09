@@ -10,11 +10,11 @@ COPY . .
 EXPOSE 4200
 CMD  npm run start
 
-# # #stage 2
-# # # Build a small nginx image with static website
+# #stage 2
+# # Build a small nginx image with static website
 # FROM nginx:alpine as prod-stage
-# ### From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
-# COPY --from=build-step /app/dist/SPA /usr/share/nginx/html
+# From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
+#COPY --from=build-step /app/dist/SPA /usr/share/nginx/html
 # EXPOSE 8000
 # CMD ["nginx", "-g", "daemon off;"]
 
