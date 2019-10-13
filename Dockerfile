@@ -1,14 +1,14 @@
 #stage 1
 # The builder from node image
-FROM node:alpine as build-step
+FROM node:alpine as BUILD
 
 # Move our files into directory name "app"
 WORKDIR /app
 COPY package.json ./
 RUN npm install 
 COPY . .
-EXPOSE 4200
-CMD  npm run start
+#EXPOSE 4200
+CMD  npm run build:prod
 
 # #stage 2
 # # Build a small nginx image with static website
@@ -20,8 +20,9 @@ CMD  npm run start
 
 ### STAGE 2: Setup ###
 
-# FROM nginx:alpine
-
+FROM nginx
+EXPOSE 8000
+COPY --from=BUILD /app/dist/SPA /usr/share/nginx/html
 # ## Copy our default nginx config
 # COPY nginx/nginx.conf /etc/nginx/conf.d/
 
